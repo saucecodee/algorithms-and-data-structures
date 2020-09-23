@@ -20,8 +20,6 @@ class DoubleLinkedList {
 
           this.head = node
           this.length++
-
-          return node
      }
 
      append(value) {
@@ -31,8 +29,6 @@ class DoubleLinkedList {
 
           this.tail = node
           this.length++
-
-          return node
      }
 
      insert(index, value) {
@@ -54,6 +50,18 @@ class DoubleLinkedList {
           }
      }
 
+     listToArray(){
+          let result = []
+          let currentNode = this.head
+
+          for (let i = 0; i < this.length; i++) {
+               result.push(currentNode.value)
+               currentNode = currentNode.next
+          }
+
+          return result
+     }
+
      get allNodes() {
           let result = []
           let currentNode = this.head
@@ -70,20 +78,19 @@ class DoubleLinkedList {
 
 
 
-const dl = new DoubleLinkedList("benz")
-console.log("Intial list")
+const dl = new DoubleLinkedList("Oo")
 console.table(dl.allNodes)
 
-dl.prepend("toyota")
-console.log("Prepend toyota")
+dl.prepend("Aa")
 console.table(dl.allNodes)
 
-dl.append("lexus")
-console.log("Append lexus")
+dl.append("Bb")
 console.table(dl.allNodes)
 
-dl.insert(2, "keke")
-console.log("Inster keke at index 2")
+dl.insert(2, "Cc")
 console.table(dl.allNodes)
+
+
+console.log(dl.listToArray())
 
 
